@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "angular-firebase-nosql": {
+      "hosting": {
+        "angular-firebase": [
+          "angular-firebase-nosql"
+        ]
+      }
+    }
+  }
+}

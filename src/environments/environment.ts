@@ -3,7 +3,22 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: 'AIzaSyAiveZ_SnlNKSbmjIJKtICfulS0aldrJng',
+    authDomain: 'angular-firebase-nosql.firebaseapp.com',
+    databaseURL: 'https://angular-firebase-nosql.firebaseio.com',
+    projectId: 'angular-firebase-nosql',
+    storageBucket: 'angular-firebase-nosql.appspot.com',
+    messagingSenderId: '512511782652',
+    appId: '1:512511782652:web:3a494cdac797a31a15b179',
+    measurementId: 'G-GPVQ3FD3PC',
+  },
+  googleKeys: {
+    clientID:
+      '512511782652-1931faqhqg414ebslav6m5ki128m2nka.apps.googleusercontent.com',
+    clientSecret: 'GmGzFeOMIVpO5tKoBS3RDpSh',
+  },
 };
 
 /*
