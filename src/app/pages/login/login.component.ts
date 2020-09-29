@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
   get password() {
     return this.form.get('password');
   }
+
   ngOnInit(): void {}
 
   login(event: Event) {
@@ -49,19 +50,33 @@ export class LoginComponent implements OnInit {
     this.firebase
       .loginWithEmailPassword(email, password)
       .then((res) => {
-        console.log('respondo 1:');
         this.router.navigate(['dashboard']);
-        console.log('respondo 2:');
       })
       .catch((err) => {
         if (err.code === 'auth/user-not-found') {
-          this.firebase.createUser(email, password).then(() => {
-            this.firebase
-              .loginWithEmailPassword(email, password)
-              .then(() => this.router.navigate(['/dashboard']));
-          });
+          this.firebase
+            .createUser(email, password)
+            .then((user) => {
+              console.log('creo usuario');
+
+              this.firebase
+                .createUserInFirestore(user)
+                .then((res) => console.log(res))
+                .catch((err) =>
+                  console.log('error en createUserInFirestore: ', err)
+                );
+
+              this.firebase
+                .loginWithEmailPassword(email, password)
+                .then(() => this.router.navigate(['/dashboard']))
+                .catch((err) =>
+                  console.log('error en loginWithEmailPassword: ', err)
+                );
+            })
+            .catch((err) => console.log('error en createUser: ', err));
+        } else {
+          errorMensaje('Error', err.message).then();
         }
-        errorMensaje('Error', err.message).then();
       });
   }
 }
