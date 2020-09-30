@@ -57,10 +57,15 @@ export class LoginComponent implements OnInit {
           this.firebase
             .createUser(email, password)
             .then((user) => {
-              console.log('creo usuario');
+              console.log('creo usuario: ', user);
+              const usuario = {
+                email,
+                password,
+              };
+              console.log('creo usuario: ', user);
 
               this.firebase
-                .createUserInFirestore(user)
+                .createUserInFirestore(usuario)
                 .then((res) => console.log(res))
                 .catch((err) =>
                   console.log('error en createUserInFirestore: ', err)

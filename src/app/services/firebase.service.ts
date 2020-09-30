@@ -1,13 +1,10 @@
 import { Injectable } from '@angular/core';
 import {
   AngularFirestore,
-  DocumentReference,
   AngularFirestoreCollection,
 } from '@angular/fire/firestore';
 
 import { AngularFireAuth } from '@angular/fire/auth';
-import { Router } from '@angular/router';
-
 @Injectable({
   providedIn: 'root',
 })
@@ -19,17 +16,12 @@ export class FirebaseService {
 
   private usuarios: AngularFirestoreCollection<any>;
 
-  getItems() {
-    return this.firestore.collection('items').valueChanges();
-  }
-
   getUsuarios() {
-    this.usuarios = this.firestore.collection<any>('usuarios');
-    return this.usuarios.valueChanges();
+    return this.firestore.collection<any>('usuarios').valueChanges();
   }
 
   logout() {
-    this.auth.signOut();
+    return this.auth.signOut();
   }
 
   loginWithEmailPassword(
@@ -46,15 +38,7 @@ export class FirebaseService {
     return this.auth.createUserWithEmailAndPassword(email, password);
   }
 
-  createUserInFirestore(
-    user: firebase.auth.UserCredential
-  ): Promise<DocumentReference> {
-    return this.usuarios.add(user);
-  }
-
-  createUserInRealtimeDatabase(
-    user: firebase.auth.UserCredential
-  ): Promise<DocumentReference> {
-    return this.firestore.collection('usuarios').add(user);
+  createUserInFirestore(user): Promise<void> {
+    return this.firestore.doc(`usuarios/${user.email}`).set(user);
   }
 }

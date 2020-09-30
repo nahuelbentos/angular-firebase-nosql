@@ -14,20 +14,10 @@ export class DashboardComponent {
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {
       if (matches) {
-        return [
-          { title: 'Card 1', cols: 1, rows: 1 },
-          { title: 'Card 2', cols: 1, rows: 1 },
-          { title: 'Card 3', cols: 1, rows: 1 },
-          { title: 'Card 4', cols: 1, rows: 1 },
-        ];
+        return [{ id: 1, title: 'Usuarios', cols: 1, rows: 1 }];
       }
 
-      return [
-        { title: 'Card 1', cols: 2, rows: 1 },
-        { title: 'Card 2', cols: 1, rows: 1 },
-        { title: 'Card 3', cols: 1, rows: 2 },
-        { title: 'Card 4', cols: 1, rows: 1 },
-      ];
+      return [{ id: 1, title: 'Usuarios', cols: 2, rows: 1 }];
     })
   );
 
@@ -37,6 +27,6 @@ export class DashboardComponent {
     private breakpointObserver: BreakpointObserver,
     firebase: FirebaseService
   ) {
-    this.items = firebase.getItems();
+    this.items = firebase.getUsuarios();
   }
 }
