@@ -5,19 +5,18 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: 'AIzaSyAiveZ_SnlNKSbmjIJKtICfulS0aldrJng',
-    authDomain: 'angular-firebase-nosql.firebaseapp.com',
-    databaseURL: 'https://angular-firebase-nosql.firebaseio.com',
-    projectId: 'angular-firebase-nosql',
-    storageBucket: 'angular-firebase-nosql.appspot.com',
-    messagingSenderId: '512511782652',
-    appId: '1:512511782652:web:3a494cdac797a31a15b179',
-    measurementId: 'G-GPVQ3FD3PC',
+    apiKey: 'YOUR-API-KEY',
+    authDomain: 'YOUR-AUTH-DOMAIN',
+    databaseURL: 'YOUR-DATABASE-URL',
+    projectId: 'YOUR-PROJECT-ID',
+    storageBucket: 'YOUR-STORAGE-BUCKET',
+    messagingSenderId: 'YOUR-MESSAGING-SENDER-ID',
+    appId: 'YOUR-APP-ID',
+    measurementId: 'YOUR-MEASUREMENT-ID',
   },
   googleKeys: {
-    clientID:
-      '512511782652-1931faqhqg414ebslav6m5ki128m2nka.apps.googleusercontent.com',
-    clientSecret: 'GmGzFeOMIVpO5tKoBS3RDpSh',
+    clientID: 'YOUR-CLIENT-ID',
+    clientSecret: 'YOUR-CLIENT-SECRET',
   },
 };
 

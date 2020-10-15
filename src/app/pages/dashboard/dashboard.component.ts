@@ -28,5 +28,9 @@ export class DashboardComponent {
     firebase: FirebaseService
   ) {
     this.items = firebase.getUsuarios();
+
+    firebase
+      .getUsuarios()
+      .subscribe((res) => console.log('respuesta usuarios: ', res));
   }
 }
